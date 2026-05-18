@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Leistungen — Fenster · Haustüren · Wintergarten · Vordächer | Zwick</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<style>
+  .leistung-block { padding: 96px 0; }
+  .leistung-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rot);
+    font-weight: 600;
+  }
+  .leistung-block h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); margin: 12px 0 18px; }
+  .leistung-block .lead { color: var(--grau-600); font-size: 1.05rem; max-width: 540px; margin-bottom: 24px; }
+  .end-cta {
+    background: var(--grau-800);
+    color: var(--weiss);
+    text-align: center;
+    padding: 80px 0;
+  }
+  .end-cta h2 { color: var(--weiss); margin-bottom: 14px; }
+  .end-cta p { color: rgba(255,255,255,0.8); max-width: 540px; margin: 0 auto 26px; }
+  .feature-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(216,35,26,0.08);
+    color: var(--rot);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a class="logo" href="index.html"><img src="assets/logo.png" alt="Zwick" /><span class="logo-sub">Fenster-Technik<br />seit 1958</span></a>
+    <nav><ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="leistungen.html" class="active">Leistungen</a></li>
+      <li><a href="musterraum.html">Musterraum</a></li>
+      <li><a href="referenzen.html">Referenzen</a></li>
+      <li><a href="ueber-uns.html">Über uns</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul></nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+4982077314000"><span>Anruf direkt</span>08207 / 731 4000</a>
+      <a class="btn btn-primary" href="kontakt.html">Anfrage senden</a>
+      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<!-- Page hero -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">Fenster · Haustüren · Wintergarten · Vordächer</span>
+    <h1>Leistungen</h1>
+    <p>Vier Gewerke, ein Anspruch. Von der ersten Beratung im Musterraum bis zur Montage durch unser eigenes Team — alles aus einer Hand, fest verwurzelt in der Region Augsburg.</p>
+  </div>
+</section>
+
+<!-- Fenster -->
+<section class="leistung-block" id="fenster">
+  <div class="container split">
+    <div>
+      <span class="leistung-num">01 / 04 · Fenster</span>
+      <h2>Maximales Licht.<br />Minimale Heizkosten.</h2>
+      <p class="lead">Vom Schnelltausch ohne Maurerarbeiten bis zur kompletten Sanierung. Wir setzen, was passt — und reparieren, was sich noch lohnt.</p>
+      <ul class="checklist">
+        <li>Fenstermontage und -austausch ohne Maurerarbeiten</li>
+        <li>Schnelltausch-System — von Zwick mitentwickelt</li>
+        <li>Reparatur klemmender oder undichter Fenster</li>
+        <li>Wartung, Einstellung und Beschlagservice</li>
+        <li>Sicherheitsfenster (RC1N – RC3)</li>
+        <li>3-fach Wärmedämmverglasung</li>
+      </ul>
+      <a class="btn btn-outline-red" href="kontakt.html" style="margin-top:24px;">Fenster anfragen <span class="arrow">→</span></a>
+    </div>
+    <div class="media-frame">
+      <img src="assets/ref_fenster.jpg" alt="Fenster-Referenz von Zwick" />
+    </div>
+  </div>
+</section>
+
+<!-- Haustüren -->
+<section class="leistung-block grau" id="haustueren">
+  <div class="container split reverse">
+    <div>
+      <span class="leistung-num">02 / 04 · Haustüren</span>
+      <span class="feature-tag" style="margin-top: 12px;">Mit Online-Konfigurator</span>
+      <h2>Die Visitenkarte<br />Ihres Hauses.</h2>
+      <p class="lead">Von der klassischen Holztür bis zur einbruchsicheren Aluminium-Designtür. Wir beraten im Musterraum, konfigurieren online und montieren vor Ort.</p>
+      <ul class="checklist">
+        <li>Individuelle Beratung im Musterraum vor Ort</li>
+        <li>Online-Konfigurator für Ihr Wunschmodell</li>
+        <li>Klassische und moderne Designs · Holz, Alu, PVC</li>
+        <li>Einbruchschutz-Haustüren bis RC3</li>
+        <li>Montage und Feineinstellung</li>
+        <li>Auswahl-Checkliste &amp; FAQ als PDF</li>
+      </ul>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:24px;">
+        <a class="btn btn-primary" href="kontakt.html">Haustür konfigurieren <span class="arrow">→</span></a>
+        <a class="btn btn-outline-red" href="musterraum.html">Musterraum besuchen</a>
+      </div>
+    </div>
+    <div class="media-frame">
+      <img src="assets/hero_haustuer.jpg" alt="Premium-Haustür mit Holzdekor" />
+    </div>
+  </div>
+</section>
+
+<!-- Wintergarten -->
+<section class="leistung-block" id="wintergarten">
+  <div class="container split">
+    <div>
+      <span class="leistung-num">03 / 04 · Wintergarten</span>
+      <h2>Urlaubsgefühl —<br />das ganze Jahr.</h2>
+      <p class="lead">Geplant, genehmigt, gebaut. Vom Erstgespräch bis zur Bauabnahme durch eigene Monteure — auch für bestehende Wintergärten, die ein Update brauchen.</p>
+      <ul class="checklist">
+        <li>Planung, Beratung und 3D-Visualisierung</li>
+        <li>Genehmigungsunterlagen inkl. Baugenehmigung</li>
+        <li>Montage durch eigenes Team</li>
+        <li>Thermodach-Systeme &amp; Beschattung</li>
+        <li>Reparatur und Umbau bestehender Wintergärten</li>
+        <li>Individuelle Sonderlösungen für jede Lage</li>
+      </ul>
+      <a class="btn btn-outline-red" href="kontakt.html" style="margin-top:24px;">Wintergarten planen <span class="arrow">→</span></a>
+    </div>
+    <div class="media-frame">
+      <img src="assets/ref_wintergarten.jpg" alt="Wintergarten-Referenz von Zwick" />
+    </div>
+  </div>
+</section>
+
+<!-- Vordächer -->
+<section class="leistung-block grau" id="vordaecher">
+  <div class="container split reverse">
+    <div>
+      <span class="leistung-num">04 / 04 · Vordächer</span>
+      <h2>Schutz, der<br />zur Fassade passt.</h2>
+      <p class="lead">Funktional und elegant. Ein Vordach gehört zur Visitenkarte des Hauses — wir passen es an Stil, Material und Geometrie Ihrer Fassade an.</p>
+      <ul class="checklist">
+        <li>Vordächer für Haustüren und Eingangsbereiche</li>
+        <li>Verschiedene Materialien · Glas, Aluminium, Holz</li>
+        <li>Anpassung an bestehende Fassade</li>
+        <li>Montage inklusive · alles aus einer Hand</li>
+      </ul>
+      <a class="btn btn-outline-red" href="kontakt.html" style="margin-top:24px;">Vordach anfragen <span class="arrow">→</span></a>
+    </div>
+    <div class="media-frame">
+      <div class="placeholder" style="aspect-ratio:4/3; height:100%;">[ Foto Vordach / Eingangsbereich ]<br />Platzhalter — Bild folgt</div>
+    </div>
+  </div>
+</section>
+
+<!-- End CTA -->
+<section class="end-cta">
+  <div class="container">
+    <span class="eyebrow on-dark">Nicht sicher, welche Lösung passt?</span>
+    <h2>Besuchen Sie unseren Musterraum.</h2>
+    <p>Über 300 m² Ausstellungsfläche in Affing-Mühlhausen. Fenster, Haustüren und Wintergärten in echter Größe zum Anfassen, Öffnen und Vergleichen.</p>
+    <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center;">
+      <a class="btn btn-primary" href="musterraum.html">Musterraum &amp; Anfahrt <span class="arrow">→</span></a>
+      <a class="btn btn-outline-white" href="tel:+4982077314000">08207 / 731 4000</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo"><img src="assets/logo.png" alt="Zwick" /></div>
+        <p class="footer-tag">Fenster-Technik GmbH<br />&amp; Wintergarten GmbH<br />Familienbetrieb seit 1958</p>
+      </div>
+      <div><h4>Standort</h4><p style="color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.7;">Linker Kreuthweg 8<br />86444 Affing-Mühlhausen<br /><a href="tel:+4982077314000">08207 / 731 4000</a></p></div>
+      <div><h4>E-Mail</h4><a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a><a href="mailto:innendienst@zwick-fenster.de">innendienst@zwick-fenster.de</a><a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a></div>
+      <div><h4>Navigation</h4><a href="leistungen.html">Leistungen</a><a href="musterraum.html">Musterraum</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Zwick Fenster-Technik GmbH · Alle Rechte vorbehalten</span>
+      <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="https://facebook.com/ZwickFensterTechnik">Facebook</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<h2>Navigation — Struktur für 14+ Seiten</h2>
+<p class="subtitle">Mit vielen Seiten brauchen wir eine klare Hierarchie. Welche Variante passt?</p>
+
+<div class="cards">
+
+  <!-- Option A: Dropdown -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#111;border-radius:8px 8px 0 0;height:200px">
+      <!-- Nav Mockup mit Dropdown -->
+      <div style="background:#1a1a1a;border-radius:6px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:44px;border:1px solid #2a2a2a">
+        <div style="font-size:11px;font-weight:700;color:#fff">ZWICK</div>
+        <div style="display:flex;gap:16px;font-size:11px;color:#aaa">
+          <span>Start</span>
+          <span style="color:#009475;border-bottom:1px solid #009475;padding-bottom:2px">Leistungen ▾</span>
+          <span>Referenzen</span>
+          <span>Über uns</span>
+          <span>Kontakt</span>
+        </div>
+      </div>
+      <!-- Dropdown erscheint -->
+      <div style="margin-top:2px;margin-left:90px;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:0 0 6px 6px;padding:10px 14px;width:180px">
+        <div style="font-size:10px;color:#aaa;padding:4px 0;border-bottom:1px solid #222;margin-bottom:4px">Leistungen</div>
+        <div style="font-size:11px;color:#888;padding:3px 0">→ Fenster</div>
+        <div style="font-size:11px;color:#888;padding:3px 0">→ Haustüren</div>
+        <div style="font-size:11px;color:#888;padding:3px 0">→ Wintergarten</div>
+        <div style="font-size:11px;color:#888;padding:3px 0">→ Vordächer</div>
+        <div style="font-size:11px;color:#888;padding:3px 0">→ Reparaturen</div>
+        <div style="font-size:11px;color:#888;padding:3px 0">→ Sicherheit</div>
+      </div>
+      <div style="margin-top:12px;font-size:10px;color:#555;text-align:center">Hover über "Leistungen" öffnet Untermenü</div>
+    </div>
+    <div class="card-body">
+      <h3>A — Dropdown-Navigation</h3>
+      <p>5 Haupt-Links, "Leistungen" hat ein Dropdown mit allen Service-Unterseiten. Platzsparend, professionell. Standard bei größeren Handwerks-Websites.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Mega-Nav -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#111;border-radius:8px 8px 0 0;height:200px">
+      <div style="background:#1a1a1a;border-radius:6px 6px 0 0;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:44px;border:1px solid #2a2a2a;border-bottom:none">
+        <div style="font-size:11px;font-weight:700;color:#fff">ZWICK</div>
+        <div style="display:flex;gap:16px;font-size:11px;color:#aaa">
+          <span>Start</span>
+          <span style="color:#009475">Leistungen ▾</span>
+          <span>Referenzen</span>
+          <span>Über uns</span>
+          <span>Kontakt</span>
+        </div>
+      </div>
+      <!-- Mega-Panel -->
+      <div style="background:#1a1a1a;border:1px solid #2a2a2a;border-top:2px solid #009475;border-radius:0 0 6px 6px;padding:12px 16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+        <div>
+          <div style="font-size:9px;color:#009475;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Fenster & Türen</div>
+          <div style="font-size:10px;color:#777;line-height:1.8">Fenster<br>Haustüren<br>Nebeneingangstüren</div>
+        </div>
+        <div>
+          <div style="font-size:9px;color:#009475;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Glas & Licht</div>
+          <div style="font-size:10px;color:#777;line-height:1.8">Wintergarten<br>Vordächer<br>Sicherheit</div>
+        </div>
+        <div>
+          <div style="font-size:9px;color:#009475;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Service</div>
+          <div style="font-size:10px;color:#777;line-height:1.8">Reparaturen<br>Kundendienst<br>Wartung</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;font-size:10px;color:#555;text-align:center">Breites Panel mit kategorisierten Links</div>
+    </div>
+    <div class="card-body">
+      <h3>B — Mega-Navigation</h3>
+      <p>Großes Panel mit allen Leistungen, kategorisiert in 3 Spalten. Übersichtlich, zeigt sofort die ganze Tiefe. Aufwändiger, aber sehr professionell.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Einfach + Footer-Nav -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding:16px;background:#111;border-radius:8px 8px 0 0;height:200px">
+      <div style="background:#1a1a1a;border-radius:6px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;height:44px;border:1px solid #2a2a2a">
+        <div style="font-size:11px;font-weight:700;color:#fff">ZWICK</div>
+        <div style="display:flex;gap:14px;font-size:11px;color:#aaa">
+          <span>Fenster</span>
+          <span>Haustüren</span>
+          <span>Wintergarten</span>
+          <span>Referenzen</span>
+          <span>Kontakt</span>
+        </div>
+      </div>
+      <!-- Footer-Andeutung -->
+      <div style="margin-top:12px;background:#0d0d0d;border-radius:6px;padding:10px 14px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div>
+          <div style="font-size:9px;color:#555;text-transform:uppercase;margin-bottom:4px">Leistungen</div>
+          <div style="font-size:9px;color:#444;line-height:1.8">Fenster<br>Haustüren<br>Wintergarten<br>Vordächer<br>Reparaturen</div>
+        </div>
+        <div>
+          <div style="font-size:9px;color:#555;text-transform:uppercase;margin-bottom:4px">Referenzen</div>
+          <div style="font-size:9px;color:#444;line-height:1.8">Haustüren<br>Fenster<br>Nebeneingang</div>
+        </div>
+        <div>
+          <div style="font-size:9px;color:#555;text-transform:uppercase;margin-bottom:4px">Firma</div>
+          <div style="font-size:9px;color:#444;line-height:1.8">Über uns<br>Musterraum<br>Karriere</div>
+        </div>
+        <div>
+          <div style="font-size:9px;color:#555;text-transform:uppercase;margin-bottom:4px">Kontakt</div>
+          <div style="font-size:9px;color:#444;line-height:1.8">Anfrage<br>Kundendienst<br>Impressum</div>
+        </div>
+      </div>
+      <div style="margin-top:6px;font-size:10px;color:#555;text-align:center">Alle Seiten im Footer sichtbar — Nav bleibt schlank</div>
+    </div>
+    <div class="card-body">
+      <h3>C — Schlank + reicher Footer</h3>
+      <p>Nur 5 Haupt-Links in der Nav (die wichtigsten). Alle 14+ Seiten im Footer vollständig verlinkt. Einfach, schnell, kein Hover-Stress auf Mobile.</p>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:16px;padding:12px 16px;background:#1a1a2a;border-radius:8px;font-size:13px;color:#888">
+  <strong style="color:#aaa">Empfehlung:</strong> Option A (Dropdown) — bewährt für Handwerksbetriebe mit mehreren Leistungsbereichen, SEO-freundlich durch sichtbare Links, und auf Mobile mit Hamburger-Menü gut umsetzbar.
+</div>
