@@ -29,6 +29,7 @@
         if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
           navLinks.classList.remove('open');
           document.body.style.overflow = '';
+          toggle.setAttribute('aria-expanded', 'false');
         }
       });
     }
