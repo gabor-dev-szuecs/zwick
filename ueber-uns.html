@@ -1,401 +1,211 @@
-<!doctype html>
-<html lang="de">
+<!doctype html><html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Über uns — Familienbetrieb seit 1958 | Zwick Fenster-Technik</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<style>
-  /* Timeline */
-  .timeline { padding: 96px 0; }
-  .timeline-grid {
-    position: relative;
-    margin-top: 56px;
-  }
-  .timeline-grid::before {
-    content: "";
-    position: absolute;
-    left: 92px;
-    top: 12px;
-    bottom: 12px;
-    width: 2px;
-    background: var(--grau-200);
-  }
-  .tl-row {
-    display: grid;
-    grid-template-columns: 92px 1fr;
-    gap: 56px;
-    padding: 24px 0;
-    position: relative;
-    align-items: start;
-  }
-  .tl-year {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--rot);
-    letter-spacing: 0.04em;
-    text-align: right;
-    position: relative;
-  }
-  .tl-row::before {
-    content: "";
-    position: absolute;
-    left: 86px; top: 32px;
-    width: 14px; height: 14px;
-    background: var(--rot);
-    border: 3px solid var(--weiss);
-    box-shadow: 0 0 0 2px var(--rot);
-    border-radius: 50%;
-    z-index: 1;
-  }
-  .tl-body h3 { font-size: 1.25rem; margin-bottom: 6px; }
-  .tl-body p { color: var(--grau-600); font-size: 0.96rem; margin: 0; max-width: 580px; }
-  @media (max-width: 640px) {
-    .timeline-grid::before { left: 7px; top: 18px; }
-    .tl-row {
-      grid-template-columns: 1fr;
-      gap: 6px;
-      padding: 18px 0 18px 32px;
-    }
-    .tl-year {
-      text-align: left;
-      font-size: 0.86rem;
-    }
-    .tl-row::before {
-      left: 0;
-      top: 22px;
-      width: 12px;
-      height: 12px;
-      border-width: 2px;
-      box-shadow: 0 0 0 1.5px var(--rot);
-    }
-  }
-
-  /* Team */
-  .team-section { padding: 96px 0; }
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-top: 48px;
-  }
-  @media (max-width: 880px) { .team-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 540px) { .team-grid { grid-template-columns: 1fr; } }
-  .member {
-    background: var(--weiss);
-    border-radius: 6px;
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .member:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
-  .member .photo {
-    aspect-ratio: 4/5;
-    background: var(--grau-100);
-    overflow: hidden;
-  }
-  .member .photo img { width: 100%; height: 100%; object-fit: cover; }
-  .member .body { padding: 22px 24px 24px; }
-  .member .role {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.74rem;
-    color: var(--rot);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .member h3 { font-size: 1.15rem; margin: 6px 0 4px; }
-  .member .firm { font-size: 0.88rem; color: var(--grau-600); }
-  .member .contact {
-    display: flex;
-    gap: 14px;
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px solid var(--grau-200);
-    font-size: 0.86rem;
-  }
-  .member .contact a {
-    color: var(--rot);
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .member.placeholder-card .photo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background:
-      repeating-linear-gradient(135deg, #ececec 0 12px, #f5f5f5 12px 24px);
-    color: var(--grau-600);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    text-align: center;
-    padding: 24px;
-  }
-
-  /* Quote section */
-  .quote-section {
-    background: var(--rot);
-    color: var(--weiss);
-    padding: 120px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-  .quote-section::before {
-    content: "„";
-    position: absolute;
-    top: -40px; left: 50%;
-    transform: translateX(-50%);
-    font-size: 22rem;
-    line-height: 1;
-    color: rgba(255,255,255,0.08);
-    font-weight: 800;
-    pointer-events: none;
-  }
-  .quote-section blockquote {
-    margin: 0;
-    font-size: clamp(1.4rem, 2.8vw, 2rem);
-    line-height: 1.4;
-    max-width: 920px;
-    margin-inline: auto;
-    font-weight: 500;
-    position: relative;
-  }
-  .quote-section .who {
-    margin-top: 28px;
-    font-size: 0.86rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.85);
-    position: relative;
-  }
-
-  /* Stats */
-  .stats {
-    padding: 64px 0;
-    background: var(--grau-100);
-    border-block: 1px solid var(--grau-200);
-  }
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
-    text-align: center;
-  }
-  .stat-num {
-    font-size: clamp(2.4rem, 4vw, 3.4rem);
-    font-weight: 800;
-    color: var(--rot);
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-  .stat-label {
-    margin-top: 8px;
-    font-size: 0.86rem;
-    color: var(--grau-600);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    font-weight: 500;
-  }
-  @media (max-width: 760px) { .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
-</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Über uns — Familienbetrieb seit 1958 | Zwick Augsburg</title>
+  <meta name="description" content="Zwick Fenster-Technik GmbH — Familienbetrieb seit 1958. Lernen Sie unser Team kennen: Alexander Gäßler, Christian Neumann und das ganze Team.">
+  <link rel="icon" href="assets/logo/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container nav-row">
-    <a class="logo" href="index.html"><img src="assets/logo.png" alt="Zwick" /><span class="logo-sub">Fenster-Technik<br />seit 1958</span></a>
-    <nav><ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Start</a></li>
-      <li><a href="leistungen.html">Leistungen</a></li>
-      <li><a href="musterraum.html">Musterraum</a></li>
-      <li><a href="referenzen.html">Referenzen</a></li>
-      <li><a href="ueber-uns.html" class="active">Über uns</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-    </ul></nav>
-    <div class="nav-cta">
-      <a class="nav-phone" href="tel:+4982077314000"><span>Anruf direkt</span>08207 / 731 4000</a>
+    <a href="index.html" class="logo" aria-label="Zwick Startseite">
+      <span class="logo-name">ZWICK</span>
+      <span class="logo-sub">Fenster-Technik · seit 1958</span>
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Start</a></li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Leistungen <span class="arrow">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="fenster.html">Fenster</a></li>
+            <li><a href="haustueren.html">Haustüren</a></li>
+            <li><a href="wintergarten.html">Wintergarten</a></li>
+            <li><a href="vordaecher.html">Vordächer</a></li>
+            <li><a href="nebeneingang.html">Nebeneingangstüren</a></li>
+            <li><a href="reparaturen.html">Reparaturen</a></li>
+            <li><a href="sicherheit.html">Sicherheit</a></li>
+            <li><a href="kundendienst.html">Kundendienst</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="referenzen.html" aria-haspopup="true">Referenzen <span class="arrow">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="ref-haustueren.html">Haustüren-Beispiele</a></li>
+            <li><a href="ref-fenster.html">Fenster-Beispiele</a></li>
+            <li><a href="ref-nebeneingang.html">Nebeneingang-Beispiele</a></li>
+          </ul>
+        </li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="musterraum.html">Musterraum</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+4982077314000">📞 08207 / 731 4000</a>
       <a class="btn btn-primary" href="kontakt.html">Anfrage senden</a>
-      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
 
-<section class="page-hero">
+<!-- Hero -->
+<section style="background:var(--anthrazit);padding:80px 0;color:white">
   <div class="container">
-    <span class="eyebrow">Familienbetrieb seit 1958</span>
-    <h1>Über uns</h1>
-    <p>Über sechs Jahrzehnte Handwerk in der Region Augsburg. Was Otto und Hella Zwick 1958 als kleinen Betrieb gegründet haben, führen wir heute in zweiter Generation als zwei spezialisierte GmbHs weiter — unter einem Dach, mit demselben Anspruch.</p>
+    <span class="eyebrow" style="color:var(--teal)">Unser Team</span>
+    <h1 style="color:white;margin-top:.5rem">Wir stellen uns vor</h1>
+    <p style="color:rgba(255,255,255,.7);margin-top:8px;max-width:60ch">Damit Sie gleich Ihren richtigen Ansprechpartner finden — persönlich, kompetent, seit 1958.</p>
   </div>
 </section>
 
-<!-- Stats -->
-<section class="stats">
-  <div class="container stats-grid">
-    <div><div class="stat-num">1958</div><div class="stat-label">Gründungsjahr</div></div>
-    <div><div class="stat-num">68</div><div class="stat-label">Jahre Erfahrung</div></div>
-    <div><div class="stat-num">2</div><div class="stat-label">Spezialisierte GmbHs</div></div>
-    <div><div class="stat-num">5</div><div class="stat-label">Köpfe im Team</div></div>
-  </div>
-</section>
-
-<!-- Timeline -->
-<section class="timeline">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Unsere Geschichte</span>
-      <h2>Eine Zeitleiste in vier Generationen Fenster.</h2>
-    </div>
-
-    <div class="timeline-grid">
-      <div class="tl-row">
-        <div class="tl-year">1958</div>
-        <div class="tl-body">
-          <h3>Gründung in Affing</h3>
-          <p>Otto und Hella Zwick gründen den Betrieb in Affing-Mühlhausen — als klassischen Handwerksbetrieb für Fenster und Rollladen.</p>
-        </div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-year">1960er</div>
-        <div class="tl-body">
-          <h3>Pionier bei PVC-Rollladen</h3>
-          <p>Erstes Unternehmen in Süddeutschland, das PVC-Rollladen einführt. Ein Material, das die Branche verändert.</p>
-        </div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-year">1970</div>
-        <div class="tl-body">
-          <h3>Modernster Betrieb der Region</h3>
-          <p>Eröffnung der modernsten Fenster-Fertigung in der Region Augsburg. Eigene Produktion, eigene Montage.</p>
-        </div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-year">1970er</div>
-        <div class="tl-body">
-          <h3>Mitentwickler des Schnelltausch-Fensters</h3>
-          <p>Zwick gehört zu den ersten in Deutschland, die ein Schnelltausch-System für Fenster mitentwickeln — Austausch ohne Maurerarbeiten. Bis heute Standard.</p>
-        </div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-year">2010er</div>
-        <div class="tl-body">
-          <h3>Wintergarten-GmbH gegründet</h3>
-          <p>Spezialisierung auf Wintergartenbau in einer eigenständigen GmbH unter Christian Neumann. Zwei Firmen, ein Standort, ein Team.</p>
-        </div>
-      </div>
-      <div class="tl-row">
-        <div class="tl-year">Heute</div>
-        <div class="tl-body">
-          <h3>Zweite Generation, gleicher Anspruch</h3>
-          <p>Geführt von Alexander Gäßler (Fenster-Technik) und Christian Neumann (Wintergarten). Über 60 Jahre Erfahrung, weitergegeben Stück für Stück.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Team -->
-<section class="team-section grau">
+<!-- Team-Grid -->
+<section>
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Das Team</span>
-      <h2>Feste Ansprechpartner. Vom Erstgespräch bis zur Montage.</h2>
-      <p style="color: var(--grau-600); max-width: 580px;">Bei uns hat jedes Projekt einen Namen — und einen Menschen, der dafür verantwortlich ist. Kurze Wege, klare Zuständigkeiten.</p>
+      <h2>Zuverlässig, innovativ und kundenorientiert seit über 60 Jahren</h2>
     </div>
-    <div class="team-grid">
-
-      <div class="member">
-        <div class="photo"><img src="assets/team_alexander.jpg" alt="Alexander Gäßler" /></div>
-        <div class="body">
-          <span class="role">Geschäftsführer</span>
-          <h3>Alexander Gäßler</h3>
-          <div class="firm">Zwick Fenster-Technik GmbH</div>
-          <div class="contact"><a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a></div>
-        </div>
+    <div class="team-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="team-card">
+        <img class="team-photo" src="assets/team/alexander-gaessler.png" alt="Alexander Gäßler — Geschäftsführer Fenster-Technik">
+        <div class="team-name">Alexander Gäßler</div>
+        <div class="team-role">Geschäftsführer · Fenster-Technik</div>
+        <p style="font-size:.8rem;color:var(--text-mid);margin-top:6px">📞 0821 / 27275–13</p>
       </div>
-
-      <div class="member">
-        <div class="photo"><img src="assets/team_christian.jpg" alt="Christian Neumann" /></div>
-        <div class="body">
-          <span class="role">Geschäftsführer</span>
-          <h3>Christian Neumann</h3>
-          <div class="firm">Zwick Wintergarten GmbH</div>
-          <div class="contact"><a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a></div>
-        </div>
+      <div class="team-card">
+        <img class="team-photo" src="assets/team/team-foto.jpg" alt="Sabrina Gäßler — Innendienst">
+        <div class="team-name">Sabrina Gäßler</div>
+        <div class="team-role">Innendienst · Abt.-Leitung Kundendienst</div>
+        <p style="font-size:.8rem;color:var(--text-mid);margin-top:6px">Fenster / Haustüren</p>
       </div>
-
-      <div class="member">
-        <div class="photo"><img src="assets/team_sabrina.jpg" alt="Sabrina Gäßler" /></div>
-        <div class="body">
-          <span class="role">Innendienst &amp; Kundendienst</span>
-          <h3>Sabrina Gäßler</h3>
-          <div class="firm">Fenster &amp; Haustüren · Kundendienst-Leitung</div>
-          <div class="contact"><a href="mailto:innendienst@zwick-fenster.de">innendienst@zwick-fenster.de</a></div>
-        </div>
+      <div class="team-card">
+        <div style="width:140px;height:140px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:3rem;margin:0 auto 16px">👤</div>
+        <div class="team-name">Christian Neumann</div>
+        <div class="team-role">Geschäftsführer · Wintergarten</div>
+        <p style="font-size:.8rem;color:var(--text-mid);margin-top:6px">📞 0821 / 27275–15</p>
       </div>
-
-      <div class="member placeholder-card">
-        <div class="photo">[ Foto Dustin Neumann ]<br />Platzhalter — Foto folgt</div>
-        <div class="body">
-          <span class="role">Verkauf &amp; Beratung</span>
-          <h3>Dustin Neumann</h3>
-          <div class="firm">Wintergarten · Beratung &amp; Vertrieb</div>
-          <div class="contact"><a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a></div>
-        </div>
+      <div class="team-card">
+        <div style="width:140px;height:140px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:3rem;margin:0 auto 16px">👤</div>
+        <div class="team-name">Dustin Neumann</div>
+        <div class="team-role">Verkauf & Beratung · Wintergarten</div>
       </div>
-
-      <div class="member placeholder-card">
-        <div class="photo">[ Foto Daniela Weber ]<br />Platzhalter — Foto folgt</div>
-        <div class="body">
-          <span class="role">Innendienst &amp; Empfang</span>
-          <h3>Daniela Weber</h3>
-          <div class="firm">Wintergarten · Innendienst</div>
-          <div class="contact"><a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a></div>
-        </div>
+      <div class="team-card">
+        <div style="width:140px;height:140px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:3rem;margin:0 auto 16px">👤</div>
+        <div class="team-name">Daniela Weber</div>
+        <div class="team-role">Innendienst · Telefonzentrale Wintergarten</div>
       </div>
-
-      <div class="member" style="display:flex; flex-direction:column; justify-content:center; padding: 32px;">
-        <div class="body" style="padding: 0;">
-          <span class="role">Wir suchen Verstärkung</span>
-          <h3 style="font-size: 1.4rem;">Werden Sie Teil des Teams.</h3>
-          <p style="font-size: 0.94rem; color: var(--grau-600); margin: 10px 0 16px;">Monteure, Innendienst, Auszubildende — wir wachsen mit guten Leuten. Initiativbewerbung jederzeit willkommen.</p>
-          <a class="btn btn-outline-red" href="kontakt.html">Jetzt bewerben <span class="arrow">→</span></a>
-        </div>
+      <div class="team-card">
+        <img class="team-photo" src="assets/team/cookie.jpg" alt="Cookie — Büro-Hund und Security-Manager">
+        <div class="team-name">Cookie 🐕</div>
+        <div class="team-role">Kundenbetreuung · Security-Manager</div>
+        <p style="font-size:.8rem;color:var(--text-mid);margin-top:6px">Immer für Sie da!</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- Quote -->
-<section class="quote-section">
+<!-- Geschichte Timeline -->
+<section style="background:var(--bg-alt)">
+  <div class="container" style="max-width:760px">
+    <div class="section-head">
+      <span class="eyebrow">Unsere Geschichte</span>
+      <h2>Über 60 Jahre Innovation</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1958</div>
+        <h3>Gründung durch Otto und Hella Zwick</h3>
+        <p>Mit dem Verkauf von Fensterjalousien begann alles — ohne zu ahnen, wohin die Reise führt.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1960er</div>
+        <h3>Erstes Unternehmen Süddeutschlands mit PVC-Rollläden</h3>
+        <p>Zwick war Innovationstreiber — als erster Betrieb der Region mit dem neuen Material.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">1970</div>
+        <h3>Modernster Fenster-Fertigungsbetrieb der Region</h3>
+        <p>Als die Eigenproduktion anlief, stand in Augsburg der damals modernste Betrieb der Region.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Später</div>
+        <h3>Deutschlandweit erste Schnelltausch-Fenster-Technik</h3>
+        <p>Erneut Pionier: kostensparende Schnelltausch-Technik, die bundesweit Maßstäbe setzte.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-year">Heute</div>
+        <h3>Zwei Spezialisten-Firmen unter einem Dach</h3>
+        <p>Zwick Fenster-Technik GmbH & Zwick Wintergarten GmbH — 2. Generation, gleiche Werte.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Musterraum CTA -->
+<section class="cta-dark">
   <div class="container">
-    <blockquote>Wir möchten das innovative Erbe von Otto und Hella Zwick wahren und weiterentwickeln.</blockquote>
-    <div class="who">— Das Team der Zwick GmbH</div>
+    <h2>Lernen Sie uns persönlich kennen</h2>
+    <p>Im Musterraum in Affing-Mühlhausen beraten wir Sie persönlich — nach Terminvereinbarung.</p>
+    <a href="musterraum.html" class="btn btn-primary">Termin vereinbaren →</a>
   </div>
 </section>
 
-<!-- Footer -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <div class="footer-logo"><img src="assets/logo.png" alt="Zwick" /></div>
-        <p class="footer-tag">Fenster-Technik GmbH<br />&amp; Wintergarten GmbH<br />Familienbetrieb seit 1958</p>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <a href="fenster.html">Fenster</a>
+        <a href="haustueren.html">Haustüren</a>
+        <a href="wintergarten.html">Wintergarten</a>
+        <a href="vordaecher.html">Vordächer</a>
+        <a href="nebeneingang.html">Nebeneingangstüren</a>
+        <a href="reparaturen.html">Reparaturen</a>
+        <a href="sicherheit.html">Sicherheit</a>
+        <a href="kundendienst.html">Kundendienst</a>
       </div>
-      <div><h4>Standort</h4><p style="color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.7;">Linker Kreuthweg 8<br />86444 Affing-Mühlhausen<br /><a href="tel:+4982077314000">08207 / 731 4000</a></p></div>
-      <div><h4>E-Mail</h4><a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a><a href="mailto:innendienst@zwick-fenster.de">innendienst@zwick-fenster.de</a><a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a></div>
-      <div><h4>Navigation</h4><a href="leistungen.html">Leistungen</a><a href="musterraum.html">Musterraum</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a></div>
+      <div class="footer-col">
+        <h4>Referenzen</h4>
+        <a href="ref-haustueren.html">Haustüren-Beispiele</a>
+        <a href="ref-fenster.html">Fenster-Beispiele</a>
+        <a href="ref-nebeneingang.html">Nebeneingang</a>
+        <a href="referenzen.html">Alle Referenzen</a>
+      </div>
+      <div class="footer-col">
+        <h4>Firma</h4>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="musterraum.html">Musterraum</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>Linker Kreuthweg 8<br>86444 Affing–Mühlhausen</p>
+        <a href="tel:+4982077314000">08207 / 731 4000</a>
+        <a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a>
+        <a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a>
+        <p style="margin-top:16px"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+      </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Zwick Fenster-Technik GmbH · Alle Rechte vorbehalten</span>
-      <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="https://facebook.com/ZwickFensterTechnik">Facebook</a></span>
+      <span>© 2026 Zwick Fenster-Technik GmbH & Zwick Wintergarten GmbH</span>
+      <span>Familienbetrieb seit 1958</span>
     </div>
   </div>
 </footer>
 
-</body>
-</html>
+<div class="sticky-cta">
+  <a href="tel:+4982077314000" class="s-phone">📞 Anrufen</a>
+  <a href="kontakt.html" class="s-anfrage">Anfrage senden</a>
+</div>
+
+<script src="nav.js"></script>
+</body></html>
