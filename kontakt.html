@@ -1,342 +1,199 @@
-<!doctype html>
-<html lang="de">
+<!doctype html><html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Kontakt — Wir freuen uns auf Ihre Anfrage | Zwick Fenster-Technik</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<style>
-  .contact-section { padding: 88px 0; }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 56px;
-  }
-  @media (max-width: 880px) { .contact-grid { grid-template-columns: 1fr; gap: 36px; } }
-
-  /* Form */
-  .form-card {
-    background: var(--weiss);
-    border-radius: 6px;
-    border: 1px solid var(--grau-200);
-    padding: 40px;
-  }
-  .form-card h2 { font-size: 1.6rem; margin-bottom: 6px; }
-  .form-card .sub { color: var(--grau-600); font-size: 0.96rem; margin-bottom: 28px; }
-  .field { margin-bottom: 18px; }
-  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  @media (max-width: 560px) { .field-row { grid-template-columns: 1fr; } }
-  .field label {
-    display: block;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--grau-800);
-    margin-bottom: 6px;
-    letter-spacing: 0.04em;
-  }
-  .field label .req { color: var(--rot); }
-  .field input,
-  .field select,
-  .field textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1.5px solid var(--grau-200);
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 0.96rem;
-    background: var(--weiss);
-    color: var(--grau-800);
-    transition: border-color 0.2s;
-  }
-  .field input:focus,
-  .field select:focus,
-  .field textarea:focus {
-    outline: 0;
-    border-color: var(--rot);
-  }
-  .field textarea { min-height: 140px; resize: vertical; }
-  .checkbox-field {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    font-size: 0.88rem;
-    color: var(--grau-600);
-    margin: 6px 0 24px;
-  }
-  .checkbox-field input { margin-top: 4px; accent-color: var(--rot); }
-  .checkbox-field a { color: var(--rot); }
-
-  /* Info */
-  .info-box {
-    background: var(--weiss);
-    border-top: 4px solid var(--rot);
-    border-radius: 0 0 6px 6px;
-    box-shadow: var(--shadow-card);
-    padding: 32px;
-  }
-  .info-box h3 {
-    font-size: 0.82rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--rot);
-    margin: 0 0 6px;
-  }
-  .info-row {
-    padding: 16px 0;
-    border-bottom: 1px solid var(--grau-200);
-  }
-  .info-row:last-child { border-bottom: 0; }
-  .info-row strong { display: block; font-size: 1.02rem; font-weight: 600; color: var(--grau-800); margin-bottom: 2px; }
-  .info-row a { color: var(--grau-800); text-decoration: none; transition: color 0.2s; }
-  .info-row a:hover { color: var(--rot); }
-  .info-row .meta { font-size: 0.86rem; color: var(--grau-600); }
-
-  /* Office hours small block */
-  .hours-block {
-    background: var(--grau-800);
-    color: var(--weiss);
-    padding: 28px 32px;
-    border-radius: 6px;
-    margin-top: 18px;
-  }
-  .hours-block h3 {
-    color: var(--weiss);
-    font-size: 0.82rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    margin: 0 0 14px;
-  }
-  .hours-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 6px 0;
-    font-size: 0.94rem;
-  }
-  .hours-row .key { color: rgba(255,255,255,0.72); }
-  .hours-row .val { font-weight: 600; }
-
-  /* Map placeholder */
-  .map-section { padding: 0; }
-  .map-shell {
-    height: 420px;
-    background: var(--grau-100);
-    position: relative;
-    overflow: hidden;
-  }
-  .map-shell .placeholder-bg {
-    position: absolute; inset: 0;
-    background:
-      linear-gradient(90deg, transparent 49%, rgba(216,35,26,0.06) 49%, rgba(216,35,26,0.06) 51%, transparent 51%) center/40px 100%,
-      linear-gradient(0deg, transparent 49%, rgba(216,35,26,0.06) 49%, rgba(216,35,26,0.06) 51%, transparent 51%) center/100% 40px,
-      var(--grau-100);
-  }
-  .map-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(255,255,255,0.85);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 32px;
-  }
-  .map-overlay h3 { font-size: 1.4rem; margin-bottom: 8px; }
-  .map-overlay p { color: var(--grau-600); max-width: 460px; font-size: 0.95rem; margin-bottom: 22px; }
-  .map-pin {
-    position: absolute;
-    left: 50%; top: 38%;
-    transform: translate(-50%, -50%);
-    width: 22px; height: 22px;
-    background: var(--rot);
-    border: 4px solid var(--weiss);
-    border-radius: 50%;
-    box-shadow: 0 4px 14px rgba(216,35,26,0.4);
-  }
-  .map-pin::after {
-    content: "";
-    position: absolute;
-    inset: -10px;
-    border: 2px solid rgba(216,35,26,0.3);
-    border-radius: 50%;
-    animation: pulse 2s ease-out infinite;
-  }
-  @keyframes pulse {
-    0% { transform: scale(0.6); opacity: 1; }
-    100% { transform: scale(1.8); opacity: 0; }
-  }
-</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kontakt — Zwick Fenster-Technik & Zwick Wintergarten Augsburg</title>
+  <meta name="description" content="Kontaktieren Sie Zwick Fenster-Technik (08207/731 4000) oder Zwick Wintergarten (0821/27275). Linker Kreuthweg 8, 86444 Affing-Mühlhausen.">
+  <link rel="icon" href="assets/logo/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container nav-row">
-    <a class="logo" href="index.html"><img src="assets/logo.png" alt="Zwick" /><span class="logo-sub">Fenster-Technik<br />seit 1958</span></a>
-    <nav><ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Start</a></li>
-      <li><a href="leistungen.html">Leistungen</a></li>
-      <li><a href="musterraum.html">Musterraum</a></li>
-      <li><a href="referenzen.html">Referenzen</a></li>
-      <li><a href="ueber-uns.html">Über uns</a></li>
-      <li><a href="kontakt.html" class="active">Kontakt</a></li>
-    </ul></nav>
-    <div class="nav-cta">
-      <a class="nav-phone" href="tel:+4982077314000"><span>Anruf direkt</span>08207 / 731 4000</a>
+    <a href="index.html" class="logo" aria-label="Zwick Startseite">
+      <span class="logo-name">ZWICK</span>
+      <span class="logo-sub">Fenster-Technik · seit 1958</span>
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Start</a></li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Leistungen <span class="arrow">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="fenster.html">Fenster</a></li>
+            <li><a href="haustueren.html">Haustüren</a></li>
+            <li><a href="wintergarten.html">Wintergarten</a></li>
+            <li><a href="vordaecher.html">Vordächer</a></li>
+            <li><a href="nebeneingang.html">Nebeneingangstüren</a></li>
+            <li><a href="reparaturen.html">Reparaturen</a></li>
+            <li><a href="sicherheit.html">Sicherheit</a></li>
+            <li><a href="kundendienst.html">Kundendienst</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="referenzen.html" aria-haspopup="true">Referenzen <span class="arrow">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="ref-haustueren.html">Haustüren-Beispiele</a></li>
+            <li><a href="ref-fenster.html">Fenster-Beispiele</a></li>
+            <li><a href="ref-nebeneingang.html">Nebeneingang-Beispiele</a></li>
+          </ul>
+        </li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="musterraum.html">Musterraum</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+4982077314000">📞 08207 / 731 4000</a>
       <a class="btn btn-primary" href="kontakt.html">Anfrage senden</a>
-      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
 
-<section class="page-hero">
+<section style="background:var(--anthrazit);padding:60px 0;color:white">
   <div class="container">
-    <span class="eyebrow">Wir freuen uns auf Ihre Anfrage</span>
-    <h1>Kontakt</h1>
-    <p>Schreiben Sie uns über das Formular, rufen Sie uns an oder kommen Sie direkt vorbei. Wir antworten in der Regel innerhalb eines Werktags.</p>
+    <h1 style="color:white">Wir freuen uns auf Ihre Nachricht</h1>
+    <p style="color:rgba(255,255,255,.7);margin-top:8px">Zwei Spezialisten-Teams — ein Anruf genügt.</p>
   </div>
 </section>
 
-<section class="contact-section grau">
-  <div class="container contact-grid">
-
-    <!-- Left: Form -->
-    <form class="form-card" onsubmit="event.preventDefault(); document.getElementById('formSuccess').style.display='block'; this.style.display='none';">
-      <h2>Anfrage senden</h2>
-      <p class="sub">Felder mit <span style="color: var(--rot);">*</span> sind Pflichtfelder.</p>
-
-      <div class="field-row">
-        <div class="field">
-          <label for="name">Name <span class="req">*</span></label>
-          <input type="text" id="name" name="name" required />
+<!-- 2 Kontakt-Bereiche -->
+<section>
+  <div class="container">
+    <div class="kontakt-grid">
+      <!-- Fenster/Haustüren -->
+      <div class="kontakt-bereich">
+        <h3>Fenster & Haustüren</h3>
+        <div class="kontakt-zeile">
+          <span class="icon">📍</span>
+          <span>Linker Kreuthweg 8<br>86444 Affing–Mühlhausen<br><small style="color:var(--text-mid)">(nähe Augsburger Flughafen)</small></span>
         </div>
-        <div class="field">
-          <label for="tel">Telefon</label>
-          <input type="tel" id="tel" name="tel" />
+        <div class="kontakt-zeile">
+          <span class="icon">📞</span>
+          <a href="tel:+4982077314000">08207 / 731 4000</a>
+        </div>
+        <div class="kontakt-zeile">
+          <span class="icon">📞</span>
+          <span>Alexander Gäßler: <a href="tel:+4982127275">0821 / 27275–13</a></span>
+        </div>
+        <div class="kontakt-zeile">
+          <span class="icon">✉️</span>
+          <span>
+            <a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a><br>
+            <a href="mailto:innendienst@zwick-fenster.de" style="font-size:.85rem;color:var(--text-mid)">innendienst@zwick-fenster.de</a>
+          </span>
         </div>
       </div>
-
-      <div class="field">
-        <label for="email">E-Mail <span class="req">*</span></label>
-        <input type="email" id="email" name="email" required />
+      <!-- Wintergarten -->
+      <div class="kontakt-bereich">
+        <h3>Wintergarten</h3>
+        <div class="kontakt-zeile">
+          <span class="icon">📍</span>
+          <span>Am Mittleren Moos 15<br>86167 Augsburg–Lechhausen</span>
+        </div>
+        <div class="kontakt-zeile">
+          <span class="icon">📞</span>
+          <a href="tel:+498212727515">0821 / 27275–15</a>
+        </div>
+        <div class="kontakt-zeile">
+          <span class="icon">📞</span>
+          <span>Christian Neumann: <a href="tel:+498212727515">0821 / 27275–15</a></span>
+        </div>
+        <div class="kontakt-zeile">
+          <span class="icon">✉️</span>
+          <span>
+            <a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a><br>
+            <a href="mailto:neumann@zwick-wintergarten.de" style="font-size:.85rem;color:var(--text-mid)">neumann@zwick-wintergarten.de</a>
+          </span>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="field">
-        <label for="bereich">Ihr Anliegen <span class="req">*</span></label>
-        <select id="bereich" name="bereich" required>
-          <option value="">Bitte auswählen…</option>
+<!-- Kontaktformular -->
+<section style="background:var(--bg-alt)">
+  <div class="container" style="max-width:700px">
+    <div class="section-head"><span class="eyebrow">Kontaktformular</span><h2>Schreiben Sie uns</h2></div>
+    <form onsubmit="this.innerHTML='<div style=\'text-align:center;padding:40px\'><p style=\'font-size:1.5rem\'>✓</p><h3 style=\'color:var(--teal);margin-top:8px\'>Nachricht erhalten!</h3><p style=\'color:var(--text-mid);margin-top:8px\'>Wir antworten innerhalb von 24 Stunden.</p></div>';return false">
+      <div class="grid-2">
+        <div class="form-group"><label>Name *</label><input type="text" placeholder="Ihr Name" required></div>
+        <div class="form-group"><label>Telefon</label><input type="tel" placeholder="Für Rückfragen"></div>
+      </div>
+      <div class="form-group"><label>E-Mail *</label><input type="email" placeholder="Ihre E-Mail-Adresse" required></div>
+      <div class="form-group">
+        <label>Bereich *</label>
+        <select required>
+          <option value="">Bitte wählen...</option>
           <option>Fenster</option>
           <option>Haustüren</option>
           <option>Wintergarten</option>
           <option>Vordächer</option>
           <option>Reparatur / Kundendienst</option>
-          <option>Musterraum-Termin</option>
           <option>Sonstiges</option>
         </select>
       </div>
-
-      <div class="field">
-        <label for="msg">Nachricht <span class="req">*</span></label>
-        <textarea id="msg" name="msg" required placeholder="Beschreiben Sie kurz Ihr Vorhaben — z.B. Anzahl Fenster, Fotos können wir auch per Mail empfangen."></textarea>
-      </div>
-
-      <label class="checkbox-field">
-        <input type="checkbox" required />
-        <span>Ich habe die <a href="#">Datenschutzerklärung</a> zur Kenntnis genommen. Meine Angaben werden ausschließlich zur Bearbeitung meiner Anfrage verwendet.</span>
-      </label>
-
-      <button class="btn btn-primary" type="submit" style="width: 100%; justify-content:center;">Anfrage senden <span class="arrow">→</span></button>
+      <div class="form-group"><label>Nachricht *</label><textarea placeholder="Wie können wir Ihnen helfen?" required></textarea></div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Nachricht senden →</button>
     </form>
-
-    <div id="formSuccess" class="form-card" style="display:none; text-align:center;">
-      <div style="font-size: 3rem; color: var(--rot); margin-bottom: 12px;">✓</div>
-      <h2>Vielen Dank!</h2>
-      <p class="sub">Wir haben Ihre Nachricht erhalten und melden uns innerhalb eines Werktags zurück.</p>
-    </div>
-
-    <!-- Right: Info -->
-    <div>
-      <div class="info-box">
-        <div class="info-row">
-          <h3>Adresse</h3>
-          <strong>Linker Kreuthweg 8</strong>
-          <div class="meta">86444 Affing-Mühlhausen · nähe Augsburger Flughafen</div>
-        </div>
-        <div class="info-row">
-          <h3>Telefon</h3>
-          <a href="tel:+4982077314000"><strong>08207 / 731 4000</strong></a>
-          <div class="meta">Mo–Fr · 08:00–17:00 Uhr</div>
-        </div>
-        <div class="info-row">
-          <h3>Fenster &amp; Haustüren</h3>
-          <a href="mailto:info@zwick-fenster.de"><strong>info@zwick-fenster.de</strong></a>
-        </div>
-        <div class="info-row">
-          <h3>Kundendienst</h3>
-          <a href="mailto:innendienst@zwick-fenster.de"><strong>innendienst@zwick-fenster.de</strong></a>
-        </div>
-        <div class="info-row">
-          <h3>Wintergarten</h3>
-          <a href="mailto:info@zwick-wintergarten.de"><strong>info@zwick-wintergarten.de</strong></a>
-        </div>
-        <div class="info-row">
-          <h3>Anfahrt</h3>
-          <strong>A8 / Ausfahrt Augsburg-West</strong>
-          <div class="meta">Nähe Augsburger Flughafen · kostenlose Parkplätze direkt vor der Tür</div>
-        </div>
-      </div>
-
-      <div class="hours-block">
-        <h3>Öffnungszeiten Musterraum</h3>
-        <div class="hours-row"><span class="key">Montag – Freitag</span><span class="val">08:00 – 17:00</span></div>
-        <div class="hours-row"><span class="key">Samstag</span><span class="val">nach Vereinbarung</span></div>
-        <div class="hours-row"><span class="key">Sonn- &amp; Feiertage</span><span class="val">geschlossen</span></div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- Map (placeholder) -->
-<section class="map-section">
-  <div class="map-shell" id="mapShell">
-    <div class="placeholder-bg"></div>
-    <div class="map-pin" aria-hidden="true"></div>
-    <div class="map-overlay" id="mapOverlay">
-      <h3>Anfahrt auf Google Maps</h3>
-      <p>Wir laden die Karte erst nach Ihrer Zustimmung — so bleiben Ihre Daten geschützt.</p>
-      <button class="btn btn-primary" onclick="loadMap()">Karte laden &amp; anzeigen <span class="arrow">→</span></button>
-    </div>
-  </div>
-</section>
+<!-- Google Maps -->
+<div class="maps-wrap">
+  <iframe src="https://maps.google.com/maps?q=Linker+Kreuthweg+8,+86444+Affing&output=embed&hl=de" loading="lazy" title="Zwick Fenster-Technik Standort Affing-Mühlhausen" allowfullscreen></iframe>
+</div>
 
-<!-- Footer -->
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <div class="footer-logo"><img src="assets/logo.png" alt="Zwick" /></div>
-        <p class="footer-tag">Fenster-Technik GmbH<br />&amp; Wintergarten GmbH<br />Familienbetrieb seit 1958</p>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <a href="fenster.html">Fenster</a>
+        <a href="haustueren.html">Haustüren</a>
+        <a href="wintergarten.html">Wintergarten</a>
+        <a href="vordaecher.html">Vordächer</a>
+        <a href="nebeneingang.html">Nebeneingangstüren</a>
+        <a href="reparaturen.html">Reparaturen</a>
+        <a href="sicherheit.html">Sicherheit</a>
+        <a href="kundendienst.html">Kundendienst</a>
       </div>
-      <div><h4>Standort</h4><p style="color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.7;">Linker Kreuthweg 8<br />86444 Affing-Mühlhausen<br /><a href="tel:+4982077314000">08207 / 731 4000</a></p></div>
-      <div><h4>E-Mail</h4><a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a><a href="mailto:innendienst@zwick-fenster.de">innendienst@zwick-fenster.de</a><a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a></div>
-      <div><h4>Navigation</h4><a href="leistungen.html">Leistungen</a><a href="musterraum.html">Musterraum</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a></div>
+      <div class="footer-col">
+        <h4>Referenzen</h4>
+        <a href="ref-haustueren.html">Haustüren-Beispiele</a>
+        <a href="ref-fenster.html">Fenster-Beispiele</a>
+        <a href="ref-nebeneingang.html">Nebeneingang</a>
+        <a href="referenzen.html">Alle Referenzen</a>
+      </div>
+      <div class="footer-col">
+        <h4>Firma</h4>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="musterraum.html">Musterraum</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>Linker Kreuthweg 8<br>86444 Affing–Mühlhausen</p>
+        <a href="tel:+4982077314000">08207 / 731 4000</a>
+        <a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a>
+        <a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a>
+        <p style="margin-top:16px"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+      </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Zwick Fenster-Technik GmbH · Alle Rechte vorbehalten</span>
-      <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="https://facebook.com/ZwickFensterTechnik">Facebook</a></span>
+      <span>© 2026 Zwick Fenster-Technik GmbH & Zwick Wintergarten GmbH</span>
+      <span>Familienbetrieb seit 1958</span>
     </div>
   </div>
 </footer>
 
-<script>
-  function loadMap() {
-    var shell = document.getElementById('mapShell');
-    shell.innerHTML = '<iframe title="Google Maps — Zwick Fenster-Technik" width="100%" height="100%" style="border:0; display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Linker+Kreuthweg+8,+86444+Affing&output=embed"></iframe>';
-  }
-</script>
+<div class="sticky-cta">
+  <a href="tel:+4982077314000" class="s-phone">📞 Anrufen</a>
+  <a href="kontakt.html" class="s-anfrage">Anfrage senden</a>
+</div>
 
-</body>
-</html>
+<script src="nav.js"></script>
+</body></html>
