@@ -1,195 +1,181 @@
-<!doctype html>
-<html lang="de">
+<!doctype html><html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Musterraum — Erleben Sie unsere Produkte vor Ort | Zwick</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<style>
-  .intro-block { padding: 96px 0 32px; }
-  .intro-block h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); max-width: 720px; }
-  .intro-block .lead { font-size: 1.15rem; color: var(--grau-600); max-width: 680px; }
-  .musterraum-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    padding-top: 16px;
-  }
-  .mr-tile {
-    border: 1px solid var(--grau-200);
-    border-radius: 6px;
-    overflow: hidden;
-    background: var(--weiss);
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .mr-tile:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
-  .mr-tile .image { aspect-ratio: 4/3; }
-  .mr-tile .image img { width: 100%; height: 100%; object-fit: cover; }
-  .mr-tile .body { padding: 22px 24px 26px; }
-  .mr-tile h3 { font-size: 1.25rem; margin-bottom: 8px; }
-  .mr-tile p { font-size: 0.92rem; color: var(--grau-600); margin: 0; }
-  .mr-tile .num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.74rem;
-    color: var(--rot);
-    letter-spacing: 0.12em;
-  }
-  @media (max-width: 860px) { .musterraum-grid { grid-template-columns: 1fr; } }
-
-  .info-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 56px;
-  }
-  .info-card {
-    padding: 32px;
-    border-radius: 6px;
-  }
-  .info-card.h { background: var(--grau-100); }
-  .info-card.d { background: var(--grau-800); color: var(--weiss); }
-  .info-card.d h3 { color: var(--weiss); }
-  .info-card h3 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 18px; }
-  .info-card .item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--grau-200);
-    font-size: 0.96rem;
-  }
-  .info-card.d .item { border-color: rgba(255,255,255,0.12); }
-  .info-card .item:last-child { border-bottom: 0; }
-  .info-card .key { color: var(--grau-600); font-weight: 500; }
-  .info-card.d .key { color: rgba(255,255,255,0.65); }
-  .info-card .val { font-weight: 600; }
-  @media (max-width: 760px) { .info-row { grid-template-columns: 1fr; } }
-
-  .final-cta {
-    background: var(--weiss);
-    padding: 96px 0;
-    text-align: center;
-  }
-  .final-cta h2 { font-size: clamp(2rem, 3.6vw, 2.8rem); margin-bottom: 18px; }
-  .final-cta p { color: var(--grau-600); max-width: 540px; margin: 0 auto 28px; font-size: 1.05rem; }
-</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Musterraum Affing-Mühlhausen — Termin vereinbaren | Zwick</title>
+  <meta name="description" content="300m² Showroom in Affing-Mühlhausen — Fenster, Haustüren, Wintergärten und Vordächer zum Anfassen. Terminvereinbarung erforderlich.">
+  <link rel="icon" href="assets/logo/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container nav-row">
-    <a class="logo" href="index.html"><img src="assets/logo.png" alt="Zwick" /><span class="logo-sub">Fenster-Technik<br />seit 1958</span></a>
-    <nav><ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Start</a></li>
-      <li><a href="leistungen.html">Leistungen</a></li>
-      <li><a href="musterraum.html" class="active">Musterraum</a></li>
-      <li><a href="referenzen.html">Referenzen</a></li>
-      <li><a href="ueber-uns.html">Über uns</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-    </ul></nav>
-    <div class="nav-cta">
-      <a class="nav-phone" href="tel:+4982077314000"><span>Anruf direkt</span>08207 / 731 4000</a>
+    <a href="index.html" class="logo" aria-label="Zwick Startseite">
+      <span class="logo-name">ZWICK</span>
+      <span class="logo-sub">Fenster-Technik · seit 1958</span>
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Start</a></li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Leistungen <span class="arrow">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="fenster.html">Fenster</a></li>
+            <li><a href="haustueren.html">Haustüren</a></li>
+            <li><a href="wintergarten.html">Wintergarten</a></li>
+            <li><a href="vordaecher.html">Vordächer</a></li>
+            <li><a href="nebeneingang.html">Nebeneingangstüren</a></li>
+            <li><a href="reparaturen.html">Reparaturen</a></li>
+            <li><a href="sicherheit.html">Sicherheit</a></li>
+            <li><a href="kundendienst.html">Kundendienst</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="referenzen.html" aria-haspopup="true">Referenzen <span class="arrow">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="ref-haustueren.html">Haustüren-Beispiele</a></li>
+            <li><a href="ref-fenster.html">Fenster-Beispiele</a></li>
+            <li><a href="ref-nebeneingang.html">Nebeneingang-Beispiele</a></li>
+          </ul>
+        </li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="musterraum.html">Musterraum</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+4982077314000">📞 08207 / 731 4000</a>
       <a class="btn btn-primary" href="kontakt.html">Anfrage senden</a>
-      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
 
-<!-- Hero (red) -->
-<section class="page-hero on-red">
+<!-- Hero -->
+<section style="background:var(--anthrazit);padding:80px 0;color:white">
   <div class="container">
-    <span class="eyebrow on-red">Erleben Sie unsere Produkte vor Ort</span>
-    <h1>Musterraum</h1>
-    <p>Linker Kreuthweg 8 · 86444 Affing-Mühlhausen — über 300 m² Ausstellungsfläche zum Anfassen, Öffnen, Vergleichen.</p>
+    <span class="eyebrow" style="color:var(--teal)">Showroom</span>
+    <h1 style="color:white;margin-top:.5rem">Termine im Musterraum</h1>
+    <p style="color:rgba(255,255,255,.7);margin-top:8px;max-width:60ch">Zeit ist ein wertvolles Gut — wir möchten uns diese Zeit ganz für Sie nehmen. Bitte vereinbaren Sie vorab einen Termin.</p>
   </div>
 </section>
 
-<!-- Intro -->
-<section class="intro-block">
+<!-- Galerie -->
+<section>
   <div class="container">
-    <h2>Sie wählen kein Produkt aus einem Katalog. Sie wählen aus dem Original.</h2>
-    <p class="lead">In unserem Musterraum stehen Fenster, Haustüren und Wintergärten in echter Größe — keine Renderings, keine Mini-Modelle. Öffnen, schließen, anfassen — bevor Sie sich entscheiden. Beratung gibt's immer dazu, Verkaufsdruck nie.</p>
-
+    <div class="section-head">
+      <span class="eyebrow">Unser Showroom</span>
+      <h2>300 m² Produkte zum Anfassen</h2>
+    </div>
     <div class="musterraum-grid">
-      <div class="mr-tile">
-        <div class="image"><img src="assets/hero_haustuer.jpg" alt="Haustüren im Musterraum" /></div>
-        <div class="body">
-          <span class="num">01 — HAUSTÜREN</span>
-          <h3 style="margin-top:8px;">Haustüren</h3>
-          <p>Verschiedene Modelle in Holz, Aluminium und PVC. Materialien, Farben und Verglasung in der Hand.</p>
-        </div>
-      </div>
-      <div class="mr-tile">
-        <div class="image"><img src="assets/ref_fenster.jpg" alt="Fenster im Musterraum" /></div>
-        <div class="body">
-          <span class="num">02 — FENSTER</span>
-          <h3 style="margin-top:8px;">Fenster</h3>
-          <p>Profile, Beschläge, Sicherheitsstufen RC1N–RC3 — Unterschiede sieht man, fühlt man, hört man.</p>
-        </div>
-      </div>
-      <div class="mr-tile">
-        <div class="image"><img src="assets/ref_wintergarten.jpg" alt="Wintergarten-Aufbau im Musterraum" /></div>
-        <div class="body">
-          <span class="num">03 — WINTERGARTEN</span>
-          <h3 style="margin-top:8px;">Wintergarten</h3>
-          <p>Musteraufbauten, Thermodach-Lösungen, Verglasung &amp; Beschattung — geplant wie für Ihr Zuhause.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="info-row">
-      <div class="info-card h">
-        <h3>Öffnungszeiten</h3>
-        <div class="item"><span class="key">Montag – Freitag</span><span class="val">08:00 – 17:00</span></div>
-        <div class="item"><span class="key">Samstag</span><span class="val">nach Vereinbarung</span></div>
-        <div class="item"><span class="key">Sonn- &amp; Feiertage</span><span class="val">geschlossen</span></div>
-        <p style="margin-top:18px; font-size: 0.92rem; color: var(--grau-600);">Wir empfehlen einen Termin — dann ist garantiert ein Berater nur für Sie da.</p>
-      </div>
-      <div class="info-card d">
-        <h3>Anfahrt</h3>
-        <div class="item"><span class="key">Adresse</span><span class="val">Linker Kreuthweg 8</span></div>
-        <div class="item"><span class="key">Ort</span><span class="val">86444 Affing-Mühlhausen</span></div>
-        <div class="item"><span class="key">Autobahn</span><span class="val">A8 / Augsburg-West</span></div>
-        <div class="item"><span class="key">Region</span><span class="val">nähe Flughafen Augsburg</span></div>
-        <a class="btn btn-outline-white" href="https://maps.google.com/?q=Linker+Kreuthweg+8+86444+Affing" target="_blank" rel="noopener" style="margin-top: 22px;">In Google Maps öffnen <span class="arrow">→</span></a>
-      </div>
+      <img src="assets/musterraum/Musterraum1.jpg" alt="Musterraum Zwick — Einblick 1" loading="lazy" onclick="openModal(this.src)">
+      <img src="assets/musterraum/Musterraum2.jpg" alt="Musterraum Zwick — Einblick 2" loading="lazy" onclick="openModal(this.src)">
+      <img src="assets/musterraum/Musterraum3.jpg" alt="Musterraum Zwick — Einblick 3" loading="lazy" onclick="openModal(this.src)">
+      <img src="assets/musterraum/Musterraum4.jpg" alt="Musterraum Zwick — Einblick 4" loading="lazy" onclick="openModal(this.src)">
+      <img src="assets/musterraum/Musterraum5.jpg" alt="Musterraum Zwick — Einblick 5" loading="lazy" onclick="openModal(this.src)">
     </div>
   </div>
 </section>
 
-<!-- Final CTA -->
-<section class="final-cta">
+<!-- Modal -->
+<div class="modal-overlay" id="modal" onclick="this.classList.remove('open')">
+  <button class="modal-close" onclick="event.stopPropagation();document.getElementById('modal').classList.remove('open')">×</button>
+  <img id="modalImg" src="" alt="Musterraum">
+</div>
+<script>function openModal(src){document.getElementById('modalImg').src=src;document.getElementById('modal').classList.add('open');}</script>
+
+<!-- Was erwartet Sie -->
+<section style="background:var(--bg-alt)">
   <div class="container">
-    <span class="eyebrow">Persönliche Beratung</span>
-    <h2>Termin vereinbaren — wir nehmen uns Zeit.</h2>
-    <p>Ob 30 Minuten Schnellrundgang oder zwei Stunden Detailberatung mit Aufmaß — wir richten uns nach Ihnen.</p>
-    <div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:center;">
-      <a class="btn btn-primary" href="kontakt.html">Termin anfragen <span class="arrow">→</span></a>
-      <a class="btn btn-outline-red" href="tel:+4982077314000">08207 / 731 4000</a>
+    <div class="section-head"><span class="eyebrow">Was erwartet Sie</span><h2>Persönliche Beratung in entspannter Atmosphäre</h2></div>
+    <div class="grid-2">
+      <div class="card" style="padding:32px">
+        <h3>🪟 Fenster & Haustüren</h3>
+        <p style="color:var(--text-mid);margin-top:12px">Zahlreiche Materialien, Farben und Beschläge zum Anfassen. Unsere Experten beraten Sie kompetent zu allen Fragen rund um Fenster und Haustüren.</p>
+      </div>
+      <div class="card" style="padding:32px">
+        <h3>🌿 Wintergarten</h3>
+        <p style="color:var(--text-mid);margin-top:12px">Erleben Sie das Klimadach-System live. Planungsberatung und Musterstücke für Verglasung, Profile und Zubehör.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
+<!-- Terminanfrage-Formular -->
+<section>
+  <div class="container" style="max-width:600px">
+    <div class="section-head"><span class="eyebrow">Terminanfrage</span><h2>Termin vereinbaren</h2></div>
+    <form onsubmit="this.innerHTML='<div style=\'text-align:center;padding:40px\'><p style=\'font-size:1.5rem\'>✓</p><h3 style=\'color:var(--teal);margin-top:8px\'>Anfrage erhalten!</h3><p style=\'color:var(--text-mid);margin-top:8px\'>Wir melden uns innerhalb von 24 Stunden.</p></div>';return false">
+      <div class="grid-2">
+        <div class="form-group"><label>Name *</label><input type="text" placeholder="Ihr Name" required></div>
+        <div class="form-group"><label>Telefon *</label><input type="tel" placeholder="Ihre Telefonnummer" required></div>
+      </div>
+      <div class="form-group">
+        <label>Bereich *</label>
+        <select required>
+          <option value="">Bitte wählen...</option>
+          <option>Fenster</option>
+          <option>Haustüren</option>
+          <option>Wintergarten</option>
+          <option>Vordächer</option>
+          <option>Allgemeine Beratung</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Nachricht</label><textarea placeholder="Kurze Beschreibung Ihres Anliegens (optional)"></textarea></div>
+      <button type="submit" class="btn btn-primary" style="width:100%">Termin anfragen →</button>
+    </form>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <div class="footer-logo"><img src="assets/logo.png" alt="Zwick" /></div>
-        <p class="footer-tag">Fenster-Technik GmbH<br />&amp; Wintergarten GmbH<br />Familienbetrieb seit 1958</p>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <a href="fenster.html">Fenster</a>
+        <a href="haustueren.html">Haustüren</a>
+        <a href="wintergarten.html">Wintergarten</a>
+        <a href="vordaecher.html">Vordächer</a>
+        <a href="nebeneingang.html">Nebeneingangstüren</a>
+        <a href="reparaturen.html">Reparaturen</a>
+        <a href="sicherheit.html">Sicherheit</a>
+        <a href="kundendienst.html">Kundendienst</a>
       </div>
-      <div><h4>Standort</h4><p style="color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.7;">Linker Kreuthweg 8<br />86444 Affing-Mühlhausen<br /><a href="tel:+4982077314000">08207 / 731 4000</a></p></div>
-      <div><h4>E-Mail</h4><a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a><a href="mailto:innendienst@zwick-fenster.de">innendienst@zwick-fenster.de</a><a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a></div>
-      <div><h4>Navigation</h4><a href="leistungen.html">Leistungen</a><a href="musterraum.html">Musterraum</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a></div>
+      <div class="footer-col">
+        <h4>Referenzen</h4>
+        <a href="ref-haustueren.html">Haustüren-Beispiele</a>
+        <a href="ref-fenster.html">Fenster-Beispiele</a>
+        <a href="ref-nebeneingang.html">Nebeneingang</a>
+        <a href="referenzen.html">Alle Referenzen</a>
+      </div>
+      <div class="footer-col">
+        <h4>Firma</h4>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="musterraum.html">Musterraum</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>Linker Kreuthweg 8<br>86444 Affing–Mühlhausen</p>
+        <a href="tel:+4982077314000">08207 / 731 4000</a>
+        <a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a>
+        <a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a>
+        <p style="margin-top:16px"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+      </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Zwick Fenster-Technik GmbH · Alle Rechte vorbehalten</span>
-      <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="https://facebook.com/ZwickFensterTechnik">Facebook</a></span>
+      <span>© 2026 Zwick Fenster-Technik GmbH & Zwick Wintergarten GmbH</span>
+      <span>Familienbetrieb seit 1958</span>
     </div>
   </div>
 </footer>
 
-</body>
-</html>
+<div class="sticky-cta">
+  <a href="tel:+4982077314000" class="s-phone">📞 Anrufen</a>
+  <a href="kontakt.html" class="s-anfrage">Anfrage senden</a>
+</div>
+
+<script src="nav.js"></script>
+</body></html>
