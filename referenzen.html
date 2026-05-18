@@ -1,380 +1,183 @@
-<!doctype html>
-<html lang="de">
+<!doctype html><html lang="de">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Referenzen — Unsere Arbeit. Ihre Zufriedenheit. | Zwick</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
-<style>
-  .ref-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 36px;
-    padding: 36px 0 0;
-  }
-  .ref-tab {
-    border: 1.5px solid var(--grau-200);
-    background: var(--weiss);
-    color: var(--grau-800);
-    padding: 10px 20px;
-    border-radius: 999px;
-    font-weight: 500;
-    font-size: 0.92rem;
-    cursor: pointer;
-    transition: all 0.18s ease;
-  }
-  .ref-tab:hover { border-color: var(--grau-800); }
-  .ref-tab.active {
-    background: var(--rot);
-    border-color: var(--rot);
-    color: var(--weiss);
-  }
-  .ref-tab .count {
-    margin-left: 6px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    opacity: 0.7;
-  }
-
-  .ref-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    padding-bottom: 96px;
-  }
-  @media (max-width: 880px) { .ref-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) { .ref-grid { grid-template-columns: 1fr; } }
-
-  .ref-tile {
-    position: relative;
-    aspect-ratio: 3/4;
-    border-radius: 6px;
-    overflow: hidden;
-    cursor: pointer;
-    background: #1a1a1a;
-  }
-  .ref-tile img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  .ref-tile:hover img { transform: scale(1.06); }
-  .ref-tile .badge {
-    position: absolute;
-    top: 14px; left: 14px;
-    background: var(--weiss);
-    color: var(--grau-800);
-    padding: 5px 11px;
-    border-radius: 4px;
-    font-size: 0.74rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .ref-tile .overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.85) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 22px;
-    color: var(--weiss);
-    opacity: 0;
-    transition: opacity 0.25s ease;
-  }
-  .ref-tile:hover .overlay { opacity: 1; }
-  .ref-tile .overlay h3 { color: var(--weiss); font-size: 1.15rem; margin: 0 0 4px; }
-  .ref-tile .overlay span { font-size: 0.84rem; color: rgba(255,255,255,0.75); }
-  .ref-tile.hidden { display: none; }
-  .ref-tile.wide { aspect-ratio: 4/3; grid-column: span 2; }
-  @media (max-width: 880px) { .ref-tile.wide { grid-column: span 2; } }
-  @media (max-width: 560px) { .ref-tile.wide { grid-column: span 1; aspect-ratio: 3/4; } }
-
-  .quotes-section { background: var(--grau-100); padding: 96px 0; }
-  .quotes-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-  @media (max-width: 760px) { .quotes-grid { grid-template-columns: 1fr; } }
-  .quote {
-    background: var(--weiss);
-    border-radius: 6px;
-    padding: 64px 30px 28px;
-    box-shadow: var(--shadow-card);
-    position: relative;
-  }
-  .quote::before {
-    content: "„";
-    position: absolute;
-    top: -4px; left: 22px;
-    font-size: 4.2rem;
-    line-height: 1;
-    color: var(--rot);
-    font-weight: 700;
-  }
-  .quote p {
-    margin: 0 0 18px;
-    font-style: italic;
-    font-size: 1rem;
-    line-height: 1.55;
-  }
-  .quote .author {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.88rem;
-    color: var(--grau-600);
-    font-weight: 600;
-    border-top: 1px solid var(--grau-200);
-    padding-top: 16px;
-  }
-  .quote .stars { color: var(--rot); letter-spacing: 2px; }
-</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Referenzen — 44 Vorher/Nachher Projekte | Zwick Augsburg</title>
+  <meta name="description" content="44 Vorher-Nachher-Vergleiche — Haustüren, Fenster und Nebeneingangstüren von Zwick Fenster-Technik Augsburg.">
+  <link rel="icon" href="assets/logo/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="site-header">
   <div class="container nav-row">
-    <a class="logo" href="index.html"><img src="assets/logo.png" alt="Zwick" /><span class="logo-sub">Fenster-Technik<br />seit 1958</span></a>
-    <nav><ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Start</a></li>
-      <li><a href="leistungen.html">Leistungen</a></li>
-      <li><a href="musterraum.html">Musterraum</a></li>
-      <li><a href="referenzen.html" class="active">Referenzen</a></li>
-      <li><a href="ueber-uns.html">Über uns</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-    </ul></nav>
-    <div class="nav-cta">
-      <a class="nav-phone" href="tel:+4982077314000"><span>Anruf direkt</span>08207 / 731 4000</a>
+    <a href="index.html" class="logo" aria-label="Zwick Startseite">
+      <span class="logo-name">ZWICK</span>
+      <span class="logo-sub">Fenster-Technik · seit 1958</span>
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Start</a></li>
+        <li class="has-dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Leistungen <span class="arrow">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="fenster.html">Fenster</a></li>
+            <li><a href="haustueren.html">Haustüren</a></li>
+            <li><a href="wintergarten.html">Wintergarten</a></li>
+            <li><a href="vordaecher.html">Vordächer</a></li>
+            <li><a href="nebeneingang.html">Nebeneingangstüren</a></li>
+            <li><a href="reparaturen.html">Reparaturen</a></li>
+            <li><a href="sicherheit.html">Sicherheit</a></li>
+            <li><a href="kundendienst.html">Kundendienst</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="referenzen.html" aria-haspopup="true">Referenzen <span class="arrow">▾</span></a>
+          <ul class="dropdown">
+            <li><a href="ref-haustueren.html">Haustüren-Beispiele</a></li>
+            <li><a href="ref-fenster.html">Fenster-Beispiele</a></li>
+            <li><a href="ref-nebeneingang.html">Nebeneingang-Beispiele</a></li>
+          </ul>
+        </li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="musterraum.html">Musterraum</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="nav-phone" href="tel:+4982077314000">📞 08207 / 731 4000</a>
       <a class="btn btn-primary" href="kontakt.html">Anfrage senden</a>
-      <button class="nav-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
     </div>
   </div>
 </header>
 
-<section class="page-hero">
+<section style="background:var(--anthrazit);padding:60px 0;color:white">
   <div class="container">
-    <span class="eyebrow">Unsere Arbeit — Ihre Zufriedenheit</span>
-    <h1>Referenzen</h1>
-    <p>Eine kleine Auswahl aus über 60 Jahren Handwerk. Jedes Projekt erzählt eine Geschichte: vorher unauffällig, nachher das Gesicht eines Hauses.</p>
+    <span class="eyebrow" style="color:var(--teal)">Referenzen</span>
+    <h1 style="color:white;margin-top:.5rem">Unsere Taten bestätigen unsere Worte</h1>
+    <p style="color:rgba(255,255,255,.7);margin-top:8px;max-width:60ch">44 Vorher/Nachher-Projekte — Schieberegler bewegen zum Vergleichen.</p>
   </div>
 </section>
 
-<section style="padding: 0;">
+<section>
   <div class="container">
-    <div class="ref-controls" role="tablist">
-      <button class="ref-tab active" data-filter="alle">Alle <span class="count">14</span></button>
-      <button class="ref-tab" data-filter="haustueren">Haustüren <span class="count">10</span></button>
-      <button class="ref-tab" data-filter="fenster">Fenster <span class="count">1</span></button>
-      <button class="ref-tab" data-filter="wintergarten">Wintergarten <span class="count">1</span></button>
-      <button class="ref-tab" data-filter="gewerbe">Gewerbe / Sonstiges <span class="count">2</span></button>
-    </div>
-
-    <div class="ref-grid" id="refGrid">
-
-      <div class="ref-tile wide" data-cat="haustueren">
-        <img src="assets/hero_haustuer.jpg" alt="Premium-Haustür Holz/Glas" />
-        <span class="badge">Haustür · Holzdekor</span>
-        <div class="overlay">
-          <h3>Eiche Altholz · Glas-Seitenteil</h3>
-          <span>Privatkunde · Region Augsburg</span>
+    <div class="grid-3">
+      <!-- Kategorie 1: Haustüren -->
+      <div class="ref-kategorie-card">
+        <div class="ref-preview">
+          <div class="ba-slider" style="aspect-ratio:16/9">
+            <div class="ba-before"><img src="assets/haustueren_ba/slider1_vorher.jpg" alt="Haustür vorher" loading="lazy"></div>
+            <div class="ba-after"><img src="assets/haustueren_ba/slider1_nachher.jpg" alt="Haustür nachher" loading="lazy"></div>
+            <div class="ba-handle" aria-label="Schieberegler"><div class="ba-circle">⇔</div></div>
+            <span class="ba-label-before">Vorher</span>
+            <span class="ba-label-after">Nachher</span>
+          </div>
+        </div>
+        <div class="ref-kategorie-body">
+          <span class="ref-badge">26 Beispiele</span>
+          <h3>Haustüren</h3>
+          <p style="font-size:.9rem;color:var(--text-mid);margin:8px 0 16px">Von der alten Holztür zur modernen Sicherheitstür — alle mit Schieberegler vergleichbar.</p>
+          <a href="ref-haustueren.html" style="color:var(--teal);font-weight:600;font-size:.9rem">Alle ansehen →</a>
         </div>
       </div>
-
-      <div class="ref-tile" data-cat="haustueren">
-        <img src="assets/ref_haustuer.jpg" alt="Haustür-Referenz" />
-        <span class="badge">Haustür</span>
-        <div class="overlay">
-          <h3>Anthrazit mit Seitenteil</h3>
-          <span>Privatkunde</span>
+      <!-- Kategorie 2: Fenster -->
+      <div class="ref-kategorie-card">
+        <div class="ref-preview">
+          <div class="ba-slider" style="aspect-ratio:16/9">
+            <div class="ba-before"><img src="assets/fenster_beispiele/image1-1.jpg" alt="Fenster vorher" loading="lazy"></div>
+            <div class="ba-after"><img src="assets/fenster_beispiele/image2-1.jpg" alt="Fenster nachher" loading="lazy"></div>
+            <div class="ba-handle" aria-label="Schieberegler"><div class="ba-circle">⇔</div></div>
+            <span class="ba-label-before">Vorher</span>
+            <span class="ba-label-after">Nachher</span>
+          </div>
+        </div>
+        <div class="ref-kategorie-body">
+          <span class="ref-badge">10 Beispiele</span>
+          <h3>Fenster</h3>
+          <p style="font-size:.9rem;color:var(--text-mid);margin:8px 0 16px">Fenstertausch vorher und nachher — Kunststoff und Aluminium-Systeme.</p>
+          <a href="ref-fenster.html" style="color:var(--teal);font-weight:600;font-size:.9rem">Alle ansehen →</a>
         </div>
       </div>
-
-      <div class="ref-tile" data-cat="haustueren">
-        <img src="assets/ref_nachher_1.jpg" alt="Haustür modern grau/weiß Streifen" />
-        <span class="badge">Haustür · Modern</span>
-        <div class="overlay">
-          <h3>Anthrazit · Designstreifen</h3>
-          <span>Einfamilienhaus · 2024</span>
+      <!-- Kategorie 3: Nebeneingang -->
+      <div class="ref-kategorie-card">
+        <div class="ref-preview">
+          <div class="ba-slider" style="aspect-ratio:16/9">
+            <div class="ba-before"><img src="assets/nebeneingang_ba/image1-2.jpg" alt="Nebeneingangstür vorher" loading="lazy"></div>
+            <div class="ba-after"><img src="assets/nebeneingang_ba/image2-2.jpg" alt="Nebeneingangstür nachher" loading="lazy"></div>
+            <div class="ba-handle" aria-label="Schieberegler"><div class="ba-circle">⇔</div></div>
+            <span class="ba-label-before">Vorher</span>
+            <span class="ba-label-after">Nachher</span>
+          </div>
         </div>
-      </div>
-
-      <div class="ref-tile" data-cat="haustueren">
-        <img src="assets/ref_nachher_2.jpg" alt="Haustür weiß mit Glasstreifen" />
-        <span class="badge">Haustür · Weiß</span>
-        <div class="overlay">
-          <h3>Weiß · Glaslichtfeld</h3>
-          <span>Einfamilienhaus</span>
+        <div class="ref-kategorie-body">
+          <span class="ref-badge">5 Beispiele</span>
+          <h3>Nebeneingangstüren</h3>
+          <p style="font-size:.9rem;color:var(--text-mid);margin:8px 0 16px">Keller- und Nebeneingangstüren — funktional und sicher erneuert.</p>
+          <a href="ref-nebeneingang.html" style="color:var(--teal);font-weight:600;font-size:.9rem">Alle ansehen →</a>
         </div>
-      </div>
-
-      <div class="ref-tile" data-cat="gewerbe">
-        <img src="assets/ref_gewerbe.jpg" alt="Gewerbe-Eingangstür JAUDT" />
-        <span class="badge">Gewerbe</span>
-        <div class="overlay">
-          <h3>Eingangstür Industrie</h3>
-          <span>JAUDT Dosiertechnik · Augsburg</span>
-        </div>
-      </div>
-
-      <div class="ref-tile" data-cat="haustueren">
-        <img src="assets/ref_nachher_3.jpg" alt="Haustür Mehrfamilienhaus" />
-        <span class="badge">Haustür · MFH</span>
-        <div class="overlay">
-          <h3>Mehrfamilienhaus-Eingang</h3>
-          <span>Region Augsburg</span>
-        </div>
-      </div>
-
-      <div class="ref-tile" data-cat="haustueren">
-        <img src="assets/ref_nachher_4.jpg" alt="Haustür grau mit Edelstahl-Streifen" />
-        <span class="badge">Haustür</span>
-        <div class="overlay">
-          <h3>Grau · Edelstahl-Akzent</h3>
-          <span>Einfamilienhaus</span>
-        </div>
-      </div>
-
-      <div class="ref-tile" data-cat="haustueren">
-        <img src="assets/ref_nachher_5.jpg" alt="Haustür schwarz mit Glas" />
-        <span class="badge">Haustür · Modern</span>
-        <div class="overlay">
-          <h3>Anthrazit · Vollverglasung</h3>
-          <span>Privatkunde</span>
-        </div>
-      </div>
-
-      <div class="ref-tile" data-cat="haustueren">
-        <img src="assets/ref_nachher_6.jpg" alt="Haustür Innenansicht" />
-        <span class="badge">Haustür · Innen</span>
-        <div class="overlay">
-          <h3>Weiß · Lichtfeld</h3>
-          <span>Innenseite — Nebeneingang</span>
-        </div>
-      </div>
-
-      <div class="ref-tile" data-cat="haustueren">
-        <img src="assets/ref_nachher_7.jpg" alt="Haustür Anthrazit" />
-        <span class="badge">Haustür</span>
-        <div class="overlay">
-          <h3>Anthrazit · Klassisch</h3>
-          <span>Einfamilienhaus</span>
-        </div>
-      </div>
-
-      <div class="ref-tile" data-cat="haustueren">
-        <img src="assets/ref_holz.jpg" alt="Haustür mit Holzgriff" />
-        <span class="badge">Haustür · Holzgriff</span>
-        <div class="overlay">
-          <h3>Anthrazit · Holzstoßgriff</h3>
-          <span>Privatkunde</span>
-        </div>
-      </div>
-
-      <div class="ref-tile" data-cat="haustueren">
-        <img src="assets/ref_modern.jpg" alt="Haustür Mehrparteienhaus" />
-        <span class="badge">Haustür · MFH</span>
-        <div class="overlay">
-          <h3>Glas-Eingang mit Briefkasten</h3>
-          <span>Mehrparteienhaus</span>
-        </div>
-      </div>
-
-      <div class="ref-tile" data-cat="fenster">
-        <img src="assets/ref_fenster.jpg" alt="Fenster-Referenz Zwick" />
-        <span class="badge">Fenster</span>
-        <div class="overlay">
-          <h3>Bodentiefe Fensterfront</h3>
-          <span>Wohnhaus · 3-fach verglast</span>
-        </div>
-      </div>
-
-      <div class="ref-tile" data-cat="wintergarten">
-        <img src="assets/ref_wintergarten.jpg" alt="Wintergarten-Referenz Zwick" />
-        <span class="badge">Wintergarten</span>
-        <div class="overlay">
-          <h3>Wintergarten mit Beschattung</h3>
-          <span>Privatkunde · Region Augsburg</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Quotes -->
-<section class="quotes-section">
-  <div class="container">
-    <div class="section-head center">
-      <span class="eyebrow">Kundenstimmen</span>
-      <h2>Worte unserer Kunden.</h2>
-    </div>
-    <div class="quotes-grid">
-      <div class="quote">
-        <p>Meine Familie ist nun schon mehr als 30 Jahre Kunde bei der Firma Zwick. Bei allen Anliegen wurde uns stets schnell, kompetent und freundlich geholfen.</p>
-        <div class="author"><span class="stars">★★★★★</span><span>Michael Weiß · Privatkunde</span></div>
-      </div>
-      <div class="quote">
-        <p>Sehr freundliches, professionelles Unternehmen. Beratung, Termin und Montage — alles wie versprochen. Absolute Empfehlung!</p>
-        <div class="author"><span class="stars">★★★★★</span><span>FA. Habermeier · Gewerbekunde</span></div>
-      </div>
-      <div class="quote">
-        <p>Schnelle Reaktion, exzellente Beratung im Musterraum und saubere Montage. Genau so stellt man sich Handwerk vor.</p>
-        <div class="author"><span class="stars">★★★★★</span><span>S. Lechner · Affing</span></div>
-      </div>
-      <div class="quote">
-        <p>Wir haben Fenster, Haustür und später noch den Wintergarten machen lassen. Immer derselbe Ansprechpartner — das schätzen wir sehr.</p>
-        <div class="author"><span class="stars">★★★★★</span><span>Familie B. · Augsburg</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
+<section class="cta-dark">
+  <div class="container">
+    <h2>Bereit für Ihre eigene Verwandlung?</h2>
+    <p>Kontaktieren Sie uns für ein unverbindliches Angebot — kostenlose Beratung inklusive.</p>
+    <a href="kontakt.html" class="btn btn-primary">Jetzt anfragen →</a>
+  </div>
+</section>
+
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
-      <div>
-        <div class="footer-logo"><img src="assets/logo.png" alt="Zwick" /></div>
-        <p class="footer-tag">Fenster-Technik GmbH<br />&amp; Wintergarten GmbH<br />Familienbetrieb seit 1958</p>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <a href="fenster.html">Fenster</a>
+        <a href="haustueren.html">Haustüren</a>
+        <a href="wintergarten.html">Wintergarten</a>
+        <a href="vordaecher.html">Vordächer</a>
+        <a href="nebeneingang.html">Nebeneingangstüren</a>
+        <a href="reparaturen.html">Reparaturen</a>
+        <a href="sicherheit.html">Sicherheit</a>
+        <a href="kundendienst.html">Kundendienst</a>
       </div>
-      <div><h4>Standort</h4><p style="color: rgba(255,255,255,0.78); font-size: 0.95rem; line-height: 1.7;">Linker Kreuthweg 8<br />86444 Affing-Mühlhausen<br /><a href="tel:+4982077314000">08207 / 731 4000</a></p></div>
-      <div><h4>E-Mail</h4><a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a><a href="mailto:innendienst@zwick-fenster.de">innendienst@zwick-fenster.de</a><a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a></div>
-      <div><h4>Navigation</h4><a href="leistungen.html">Leistungen</a><a href="musterraum.html">Musterraum</a><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a><a href="kontakt.html">Kontakt</a></div>
+      <div class="footer-col">
+        <h4>Referenzen</h4>
+        <a href="ref-haustueren.html">Haustüren-Beispiele</a>
+        <a href="ref-fenster.html">Fenster-Beispiele</a>
+        <a href="ref-nebeneingang.html">Nebeneingang</a>
+        <a href="referenzen.html">Alle Referenzen</a>
+      </div>
+      <div class="footer-col">
+        <h4>Firma</h4>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="musterraum.html">Musterraum</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <p>Linker Kreuthweg 8<br>86444 Affing–Mühlhausen</p>
+        <a href="tel:+4982077314000">08207 / 731 4000</a>
+        <a href="mailto:info@zwick-fenster.de">info@zwick-fenster.de</a>
+        <a href="mailto:info@zwick-wintergarten.de">info@zwick-wintergarten.de</a>
+        <p style="margin-top:16px"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
+      </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Zwick Fenster-Technik GmbH · Alle Rechte vorbehalten</span>
-      <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · <a href="https://facebook.com/ZwickFensterTechnik">Facebook</a></span>
+      <span>© 2026 Zwick Fenster-Technik GmbH & Zwick Wintergarten GmbH</span>
+      <span>Familienbetrieb seit 1958</span>
     </div>
   </div>
 </footer>
 
-<script>
-  (function(){
-    var tabs = document.querySelectorAll('.ref-tab');
-    var tiles = document.querySelectorAll('.ref-tile');
-    tabs.forEach(function(tab){
-      tab.addEventListener('click', function(){
-        tabs.forEach(function(t){ t.classList.remove('active'); });
-        tab.classList.add('active');
-        var filter = tab.dataset.filter;
-        tiles.forEach(function(tile){
-          if (filter === 'alle' || tile.dataset.cat === filter) {
-            tile.classList.remove('hidden');
-          } else {
-            tile.classList.add('hidden');
-          }
-        });
-      });
-    });
-  })();
-</script>
+<div class="sticky-cta">
+  <a href="tel:+4982077314000" class="s-phone">📞 Anrufen</a>
+  <a href="kontakt.html" class="s-anfrage">Anfrage senden</a>
+</div>
 
-</body>
-</html>
+<script src="nav.js"></script>
+<script src="before-after.js"></script>
+</body></html>
